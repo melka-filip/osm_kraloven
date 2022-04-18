@@ -1,38 +1,155 @@
+:root {
+  --primary: rgb(0, 102, 255);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(228, 228, 228);
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+  margin-bottom: 0;
+  text-align: center;
+}
+p{
+  padding: 0 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.instructions {
+  height: 3rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.instructions div{
+  color: rgb(42, 42, 42);
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+}
+.instructions button{
+  background: var(--primary);
   color: white;
+  padding: 0.5rem 2rem;
+  border-radius: .5rem;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 250ms ease-in;
+}
+.instructions button:hover{
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.instructions h3{
+  font-size: 1.5rem;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chessboard {
+  background: white;
+  width: 32rem;
+  height: 32rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  margin: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.row {
+  display: flex;
+}
+.cell {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.cell:hover{
+  cursor: pointer;
+}
+.cell:disabled:hover{
+  cursor: default;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.solutions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.solutions .chessboard{
+  width: 24rem;
+  height: 24rem;
+}
+.solutions .cell{
+  width: 3rem;
+  height: 3rem;
+}
+.solutions .cell:hover{
+  cursor: default;
+}
+
+.show{
+  text-align: center;
+  background: rgb(242, 242, 242);
+  font-weight: bold;
+  padding: 0.5rem 2rem;
+  border-radius: .5rem;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 200ms ease-in;
+  margin-bottom: 3rem;
+}
+.show:hover{
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.info{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .chessboard {
+    width: 24rem;
+    height: 24rem;
+    margin: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .cell {
+    width: 3rem;
+    height: 3rem;
+  }
+  .instructions button{
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .chessboard, .solutions .chessboard {
+    width: 20rem;
+    height: 20rem;
+  }
+  .cell, .solutions .cell {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
